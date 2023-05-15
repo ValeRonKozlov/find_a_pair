@@ -5,9 +5,8 @@ class Card {
 
   constructor(container, number, action) {
     this.card = document.createElement('div');
-    this.number = document.createElement('p');
     this.card.classList.add('card');
-    this.card.append(number);
+    this.card.textContent = number;
     this.number = number;
 
     this.card.addEventListener('click', () => {
@@ -16,7 +15,6 @@ class Card {
         this._open = true;
         action(this);
       }
-      console.log(this.number);
     })
     container.append(this.card);
   }
@@ -37,37 +35,12 @@ class Card {
   }
 }
 
-class AmazingCard extends Card {
-
-    set cardIcons(value) {
-      const cardIconsArray = [
-        '../img/1.png',
-        '../img/2.png',
-        '../img/3.png',
-        '../img/4.png',
-        '../img/5.png',
-        '../img/6.png',
-        '../img/7.png',
-        '../img/8.png',
-      ]
-      const img = document.createElement('img')
-      img.src = cardIconsArray[value]
-      // Добавьте изображение на карту.
-      this.card.append(img);
-      this.card.number = img
-    } get cardIcons() {
-    return this.cardIcons;
-  }
-
-}
 //  новая игра
 function newGame(container, cardsCount) {
   //создаем массив для карточек
 
   let cardsNumberArray = [];
   let cardsArray = [];
-
-
 
   // делаем логику игры
   let firstCard = null;
@@ -80,8 +53,8 @@ function newGame(container, cardsCount) {
   // перемешиваем массив
   cardsNumberArray = cardsNumberArray.sort(() => Math.random() - 0.5)
 
-  for (let cardIcons of cardsNumberArray) {
-    cardsArray.push(new AmazingCard(container, cardIcons, flip));
+  for (let number of cardsNumberArray) {
+    cardsArray.push(new Card(container, number, flip));
   }
 
   //  переворот карточки и сравнение карточек
