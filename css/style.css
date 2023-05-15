@@ -1,0 +1,86 @@
+html {
+  box-sizing: border-box;
+}
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  background-color: rgb(140, 216, 226);
+}
+
+.container {
+  max-width: 1280px;
+  padding: 50px 20px;
+  margin: 0 auto;
+}
+
+h1 {
+  text-align: center;
+  font-size: 50px;
+  line-height: 100%;
+  color: #000000;
+}
+.game {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20%;
+  height: 150px;
+  margin-right: 25px;
+  margin-bottom: 25px;
+  background-color: #df7070;
+  border-radius: 20px;
+  font-size: 80px;
+  font-weight: 900;
+  line-height: 100%;
+  color: transparent;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, scale 0.3s;
+}
+.card:hover {
+  transform: scale(1.01);
+}
+.card:active {
+  transform: scale(0.95);
+}
+.card.open {
+  background-color: #d4df41;
+  color: #000000;
+}
+.card.selected {
+  background-color: #5cd84b;
+  color: #000000;
+  transform: scale(0.9);
+}
+.btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.restart__btn {
+  width: 290px;
+  height: 60px;
+  margin: 0;
+  padding: 12px 55px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  background-color: #df4eb3;
+  cursor: pointer;
+}
+.restart__btn:hover {
+  box-shadow: 3px 5px #000000;
+}
+.restart__btn:active {
+  transform: scale(0.95);
+}
